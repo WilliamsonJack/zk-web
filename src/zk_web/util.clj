@@ -28,9 +28,11 @@
   [n]
   (apply str (repeat n "&nbsp;")))
 
+;(defmacro when-admin [ & exprs ]
+;  `(when (session/get :user)
+;     ~@exprs))
 (defmacro when-admin [ & exprs ]
-  `(when (session/get :user)
-     ~@exprs))
+  `(when true ~@exprs))
 
 (defn drop-last-while
   "Drop from last while pred is true"

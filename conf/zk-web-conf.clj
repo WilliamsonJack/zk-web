@@ -1,5 +1,5 @@
 {
- :server-port 8080
- :users {"admin" "hello"}
+ :server-port 8089
+ :users {"admin" "admin"}
  :default-node ""
 }

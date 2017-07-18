@@ -118,7 +118,7 @@
 
       (if (empty? children)
         [:div.alert "No children"]
-        (map (fn [s] [:li (node-link (str parent s) s)]) children))]]))
+        (map (fn [s] [:li (node-link (str parent s) s)]) (sort children)))]]))
 
 (defpartial node-stat [stat]
   [:div.span4
@@ -131,9 +131,9 @@
          stat)]])
 
 (defpartial node-data [path data]
-  [:div.span4
+  [:div.span8
    [:div.row
-    [:div.span3 [:h3 "Node Data"]]
+    [:div.span7 [:h3 "Node Data"]]
     [:div.span1
      [:span.span1 (space 1)]
      [:span.label.label-info (count data) " byte(s)"]]]
@@ -238,8 +238,8 @@
           (nav-bar path)
           [:div.row
            (node-children path children)
-           (node-stat stat)
            (node-data path data)]
+           ;(node-stat stat)]
           (when-admin
            [:div#adminZone
             (admin-tool path)
