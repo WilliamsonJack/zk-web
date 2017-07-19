@@ -165,8 +165,8 @@
    (form-to [:post "/edit"]
             [:div.modal-body
              [:div.alert.alert-info "Editing node: " [:strong path]]
-             [:textarea.input.span7 {:type "text" :name "data" :rows 6} (bytes->str data)]
-             [:input.span8 {:type "hidden" :name "path" :value path}]]
+             [:textarea.input.span10 {:type "text" :name "data" :rows 18} (bytes->str data)]
+             [:input.span10 {:type "hidden" :name "path" :value path}]]
             [:div.modal-footer
              [:button.btn.btn-danger  "Save"]
              (space 1)

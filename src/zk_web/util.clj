@@ -1,5 +1,6 @@
 (ns zk-web.util
-  (:require [noir.session :as session])
+  (:require [noir.session :as session]
+            [cheshire.core :refer :all])
   (:import [java.nio.charset Charset]))
 
 (defn bytes->str
@@ -8,6 +9,13 @@
   (if bytes
     (String. bytes (Charset/forName "UTF-8"))
     ""))
+
+(defn bytes->jsonstr
+   "Convert byte[] to JSON String"
+   [bytes]
+   (if bytes
+;     (generate-string {:foo "bar" :baz {:eggplant [1 2 3]}} {:pretty true})))
+     (generate-string (parse-string (bytes->str bytes) true) {:pretty true})))
 
 (defn normalize-path
   "fix the path to normalized form"
